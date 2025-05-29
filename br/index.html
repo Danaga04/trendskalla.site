@@ -585,132 +585,111 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-
 <script>
-              
-                $(document).ready(function(){
-    var intervals = [1, 3, 5, 7, 9, 13, 19]; // segundos
-    var increments = [1, 2, 6]; // números a subir
-    var currentIndex = 0;
+    $(document).ready(function () {
+        var intervalTime = 500; // 0.5 segundo
+        var increments = [1, 2, 6];
+        var currentIndex = 0;
 
-    function updateNumber() {
-        var $number = $('.elementor-counter-number');
-        var currentNumber = parseInt($number.text().replace(/\D/g,''));
-        var incrementIndex = currentIndex % increments.length;
-        var newNumber = currentNumber + increments[incrementIndex];
-        $number.text(newNumber.toLocaleString('pt-BR'));
-
-        currentIndex++;
-        if (currentIndex >= intervals.length) {
-            currentIndex = 0;
+        function updateNumber() {
+            var $number = $('.elementor-counter-number');
+            var currentNumber = parseInt($number.text().replace(/\D/g, '')) || 0;
+            var incrementIndex = currentIndex % increments.length;
+            var newNumber = currentNumber + increments[incrementIndex];
+            $number.text(newNumber.toLocaleString('pt-BR'));
+            currentIndex++;
+            setTimeout(updateNumber, intervalTime);
         }
 
-        // Agendar próximo update
-        setTimeout(updateNumber, intervals[currentIndex] * 1000);
-    }
-
-    // Iniciar o ciclo
-    setTimeout(updateNumber, intervals[currentIndex] * 1000);
-});  
-              </script> 
-
+        setTimeout(updateNumber, intervalTime);
+    });
+</script>
 
 <script>
-    $(document).ready(function() {
-        // Insere o spinner no lugar dos números
-        $('.ramdom-1, .ramdom-2, .ramdom-3').each(function() {
+    $(document).ready(function () {
+        // Mostra spinner
+        $('.ramdom-1, .ramdom-2, .ramdom-3').each(function () {
             $(this).html('<div class="spinner"></div>');
         });
 
-        // Após 327000ms, insere os valores específicos no DOM
-        setTimeout(function() {
+        // Após 5 segundos, troca por valores
+        setTimeout(function () {
             $('.ramdom-1').text(21);
             $('.ramdom-2').text(7);
             $('.ramdom-3').text(3);
-        }, 327000);
+        }, 5000);
     });
 </script>
 
-
 <script type="text/javascript">
-    $(document).ready(function() {
-        setTimeout(function() {
-            // Alterar os elementos com a classe "hide" para "show"
-            $('.hide').each(function() {
+    $(document).ready(function () {
+        setTimeout(function () {
+            $('.hide').each(function () {
                 $(this).removeClass('hide').addClass('show');
             });
 
-            // Remover a classe "desapareca" e adicionar "hide"
-            $('.desapareca').each(function() {
+            $('.desapareca').each(function () {
                 $(this).removeClass('desapareca').addClass('hide');
             });
-        }, 327000); // 327000 ms = 327 seconds
+        }, 5000);
     });
 </script>
 
-
-<!-- barra de progresso -->
 <script type="text/javascript">
-$(document).ready(function() {
-    var initializeProgressBar = function(container, $) {
-        // Obtém dados da barra de progresso
-        var layout = container.data("layout"),
-            count = container.data("count"),
-            duration = container.data("duration");
+    $(document).ready(function () {
+        var initializeProgressBar = function (container, $) {
+            var layout = container.data("layout"),
+                count = container.data("count"),
+                duration = 2000; // Duração forçada para 2s
 
-        // Define limite de 100% no valor de progresso
-        count = Math.min(count, 100);
+            count = Math.min(count, 100);
 
-        // Função para iniciar o progresso
-        function startProgress() {
-            if (layout === "line") {
-                $(".eael-progressbar-line-fill", container).css({ width: count + "%" });
-            } else if (layout === "half_circle") {
-                $(".eael-progressbar-circle-half", container).css({ transform: "rotate(" + (1.8 * count) + "deg)" });
-            }
-
-            // Inicia a animação do contador
-            $(".eael-progressbar-count", container).prop({ counter: 0 }).animate({ counter: count }, {
-                duration: duration,
-                easing: "linear",
-                step: function(value) {
-                    if (layout === "circle" || layout === "circle_fill") {
-                        var rotation = 3.6 * value;
-                        $(".eael-progressbar-circle-half-left", container).css({ transform: "rotate(" + rotation + "deg)" });
-
-                        if (rotation > 180) {
-                            $(".eael-progressbar-circle-pie", container).css({ "-webkit-clip-path": "inset(0)", "clip-path": "inset(0)" });
-                            $(".eael-progressbar-circle-half-right", container).css({ visibility: "visible" });
-                        }
-                    }
-                    $(this).text(Math.ceil(value)); // Atualiza o valor no contador
+            function startProgress() {
+                if (layout === "line") {
+                    $(".eael-progressbar-line-fill", container).css({ width: count + "%" });
+                } else if (layout === "half_circle") {
+                    $(".eael-progressbar-circle-half", container).css({ transform: "rotate(" + (1.8 * count) + "deg)" });
                 }
-            });
-        }
 
-        // Verifica se o elemento está visível na janela de visualização
-        function checkInView() {
-            var windowHeight = $(window).height();
-            var scrollPos = $(window).scrollTop();
-            var progressBarOffset = container.offset().top;
+                $(".eael-progressbar-count", container).prop({ counter: 0 }).animate({ counter: count }, {
+                    duration: duration,
+                    easing: "linear",
+                    step: function (value) {
+                        if (layout === "circle" || layout === "circle_fill") {
+                            var rotation = 3.6 * value;
+                            $(".eael-progressbar-circle-half-left", container).css({ transform: "rotate(" + rotation + "deg)" });
 
-            if (progressBarOffset < scrollPos + windowHeight) {
-                startProgress();
-                $(window).off("scroll", checkInView); // Remove o evento após ativação
+                            if (rotation > 180) {
+                                $(".eael-progressbar-circle-pie", container).css({ "-webkit-clip-path": "inset(0)", "clip-path": "inset(0)" });
+                                $(".eael-progressbar-circle-half-right", container).css({ visibility: "visible" });
+                            }
+                        }
+                        $(this).text(Math.ceil(value));
+                    }
+                });
             }
-        }
 
-        // Inicia a verificação de visualização da barra de progresso
-        $(window).on("scroll", checkInView);
-        checkInView(); // Verifica na carga da página caso a barra já esteja visível
-    };
+            function checkInView() {
+                var windowHeight = $(window).height();
+                var scrollPos = $(window).scrollTop();
+                var progressBarOffset = container.offset().top;
 
-    // Inicializa a barra de progresso ao carregar
-    $(".eael-progressbar").each(function() {
-        initializeProgressBar($(this), jQuery);
+                if (progressBarOffset < scrollPos + windowHeight) {
+                    startProgress();
+                    $(window).off("scroll", checkInView);
+                }
+            }
+
+            $(window).on("scroll", checkInView);
+            checkInView();
+        };
+
+        $(".eael-progressbar").each(function () {
+            initializeProgressBar($(this), jQuery);
+        });
     });
-}); 
 </script>
+
 
   <!-- Script para adicionar parâmetros da URL em todos os links da página -->
   <script>
