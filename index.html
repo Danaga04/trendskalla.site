@@ -2,156 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Dulce de Leche Artesanal</title>
+  <title>Video Especial</title>
   <style>
     body {
+      background-color: red;
+      color: white;
       font-family: Arial, sans-serif;
-      background-color: #fff9e6;
-      margin: 0;
-      padding: 0;
       text-align: center;
-    }
-    .container {
-      max-width: 500px;
-      margin: 0 auto;
       padding: 20px;
     }
-    img.top-banner {
-      width: 100%;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-    .question {
-      display: none;
-      animation: fade 0.5s ease-in-out;
-    }
-    .question.active {
-      display: block;
-    }
-    .logo {
-      width: 100px;
-      margin: 10px auto;
-    }
-    .progress-bar {
-      height: 10px;
-      background-color: #f9cf7d;
-      margin: 10px 0;
-      border-radius: 10px;
-    }
-    h2 {
+    .mensagem {
       font-size: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
     }
-    button {
-      display: block;
-      width: 80%;
-      margin: 10px auto;
-      padding: 15px;
-      background-color: #e19022;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 15px;
-      box-shadow: 0 4px 0 #c77512;
-      cursor: pointer;
-    }
-    button:active {
-      box-shadow: none;
-      transform: translateY(2px);
-    }
-    @keyframes fade {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .aviso-som {
+      margin-top: 15px;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
 
-<script>
-  window.pixelId = "683b3ed3b67da67997e52c5d";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
-
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
-
-    <!-- Página inicial -->
-    <div class="question active" id="q0">
-      <img src="https://uhealthy.site/images/Dulce-de-leche-gourmet.webp" alt="Dulce de leche artesanal" class="top-banner">
-      <h2>¿Estás lista para aprender a hacer un dulce de leche artesanal irresistible desde casa?</h2>
-      <button onclick="nextQuestion()">¡SÍ, EMPECEMOS!</button>
-    </div>
-
-    <!-- Quiz preguntas -->
-    <div class="question" id="q1">
-      <img src="https://uhealthy.site/images/Logo-simples-pra-confeitaria-rosaFESFSFS.jpg.webp" class="logo">
-      <div class="progress-bar" style="width: 10%;"></div>
-      <h2>¿Alguna vez has preparado dulce de leche casero?</h2>
-      <button onclick="nextQuestion()">Nunca lo hice</button>
-      <button onclick="nextQuestion()">Intenté pero no salió bien</button>
-      <button onclick="nextQuestion()">Me encantaría aprender</button>
-    </div>
-
-    <div class="question" id="q2">
-      <img src="https://uhealthy.site/images/Logo-simples-pra-confeitaria-rosaFESFSFS.jpg.webp" class="logo">
-      <div class="progress-bar" style="width: 30%;"></div>
-      <h2>¿Tu dulce de leche queda con la textura y sabor que deseas?</h2>
-      <button onclick="nextQuestion()">No, siempre varía</button>
-      <button onclick="nextQuestion()">A veces sí, a veces no</button>
-      <button onclick="nextQuestion()">Nunca me salió bien</button>
-    </div>
-
-    <div class="question" id="q3">
-      <img src="https://uhealthy.site/images/Logo-simples-pra-confeitaria-rosaFESFSFS.jpg.webp" class="logo">
-      <div class="progress-bar" style="width: 50%;"></div>
-      <h2>¿Tu dulce de leche se conserva bien de un día para otro?</h2>
-      <button onclick="nextQuestion()">No, se arruina</button>
-      <button onclick="nextQuestion()">Sí, se mantiene perfecto</button>
-      <button onclick="nextQuestion()">No estoy segura</button>
-    </div>
-
-    <div class="question" id="q4">
-      <img src="https://uhealthy.site/images/Logo-simples-pra-confeitaria-rosaFESFSFS.jpg.webp" class="logo">
-      <div class="progress-bar" style="width: 70%;"></div>
-      <h2>¿Cuánto tiempo te toma prepararlo normalmente?</h2>
-      <button onclick="nextQuestion()">Más de 3 horas, termino agotada</button>
-      <button onclick="nextQuestion()">Entre 2 y 3 horas. Quiero mejorar</button>
-      <button onclick="nextQuestion()">Nunca lo preparé</button>
-    </div>
-
-    <div class="question" id="q5">
-      <img src="https://uhealthy.site/images/Logo-simples-pra-confeitaria-rosaFESFSFS.jpg.webp" class="logo">
-      <div class="progress-bar" style="width: 90%;"></div>
-      <h2>¿Te gustaría aprender una receta fácil y rápida de dulce de leche gourmet?</h2>
-      <button onclick="redirect()">¡Sí, lo necesito!</button>
-      <button onclick="redirect()">¡Quiero aprender ahora!</button>
-      <button onclick="redirect()">No estoy segura si funcionará</button>
-    </div>
+  <div class="mensagem" id="mensagem-tempo">
+    <!-- Texto com data e hora será inserido aqui via JavaScript -->
   </div>
 
-  <script>
-    let current = 0;
-
-    function nextQuestion() {
-      document.getElementById(`q${current}`).classList.remove('active');
-      current++;
-      document.getElementById(`q${current}`).classList.add('active');
-    }
-
-    function redirect() {
-      window.location.href = "https://uhealthy.site/br/"; // Substitua com a URL da página de vendas do doce de leite
-    }
+  <div id="vid_68420b3d86648700ca803b59" style="position: relative; width: 100%; max-width: 600px; margin: auto; padding: 177.77777777777777% 0 0;">
+    <img id="thumb_68420b3d86648700ca803b59" src="https://images.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/68420b3d86648700ca803b59/thumbnail.jpg"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
+    <div id="backdrop_68420b3d86648700ca803b59"
+      style="-webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%;">
+    </div>
+  </div>
+  <script type="text/javascript" id="scr_68420b3d86648700ca803b59">
+    var s = document.createElement("script");
+    s.src = "https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/68420b3d86648700ca803b59/player.js";
+    s.async = true;
+    document.head.appendChild(s);
   </script>
+
+  <div class="aviso-som">🔈 Asegúrate de que el sonido esté activado.</div>
+
+  <script>
+    // Script para inserir data e hora atualizada dinamicamente
+    const agora = new Date();
+    const horaClienteMais1 = new Date(agora.getTime() + 60 * 60 * 1000); // +1 hora
+
+    const dia = horaClienteMais1.getDate().toString().padStart(2, '0');
+    const mes = (horaClienteMais1.getMonth() + 1).toString().padStart(2, '0');
+    const ano = horaClienteMais1.getFullYear();
+    const hora = horaClienteMais1.getHours().toString().padStart(2, '0');
+    const minutos = horaClienteMais1.getMinutes().toString().padStart(2, '0');
+
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+    const horaFormatada = `${hora}:${minutos}`;
+
+    document.getElementById("mensagem-tempo").innerText =
+      `📺 Este video estará disponible hasta hoy ${dataFormatada} a las ${horaFormatada}.`;
+  </script>
+
 </body>
 </html>
