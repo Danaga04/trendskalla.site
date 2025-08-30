@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>¡FELICIDADES! — Desbloquear Historial + Status Secreto</title>
+  <style>
+    :root{
+      --accent:#1fa61f;
+      --accent-dark:#167a13;
+      --danger:#d32f2f;
+      --bg:#ffffff;
+      --text:#222;
+      --muted:#6b7280;
+      --card:#fafafa;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#fff 0%, #f7f9fb 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding-bottom:40px;
+    }
+
+    .top-banner{
+      background:var(--danger);
+      color:white;
+      text-align:center;
+      padding:12px 10px;
+      font-weight:700;
+      font-size:15px;
+    }
+
+    .wrap{
+      max-width:820px;
+      margin:20px auto;
+      padding:20px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 8px 30px rgba(20,20,40,0.06);
+      padding:26px;
+      text-align:center;
+    }
+
+    .logo{
+      max-width:180px;
+      display:block;
+      margin:0 auto 8px;
+    }
+
+    h1{
+      margin:10px 0 6px;
+      font-size:28px;
+      letter-spacing:0.2px;
+    }
+    h2{
+      margin:6px 0 18px;
+      font-size:18px;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .progress-wrap{
+      margin:18px auto;
+      max-width:640px;
+    }
+    .progress-track{
+      background:#eee;
+      height:18px;
+      border-radius:999px;
+      overflow:hidden;
+    }
+    .progress-bar{
+      height:18px;
+      width:0%;
+      background:linear-gradient(90deg,var(--accent) 0%, var(--accent-dark) 100%);
+      border-radius:999px;
+      transition:width 1.2s cubic-bezier(.2,.9,.2,1);
+      box-shadow:0 4px 12px rgba(31,166,31,0.12);
+    }
+    .progress-label{
+      display:flex;
+      justify-content:space-between;
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px;
+      padding:0 4px;
+    }
+
+    .features{
+      text-align:left;
+      margin-top:20px;
+      line-height:1.45;
+      color:var(--text);
+      font-size:15px;
+    }
+    .features ul{
+      padding-left:18px;
+      margin:10px 0 0;
+    }
+    .features li{
+      margin:10px 0;
+    }
+    .price{
+      font-size:30px;
+      font-weight:800;
+      color:var(--accent-dark);
+      margin:20px 0 8px;
+    }
+
+    .cta{
+      display:inline-block;
+      background:linear-gradient(180deg,#ff7a00,#cc5500);
+      color:#fff;
+      padding:14px 22px;
+      font-size:16px;
+      font-weight:700;
+      border-radius:12px;
+      text-decoration:none;
+      box-shadow:0 10px 30px rgba(204,85,0,0.18);
+      transform:translateY(0);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .cta:active{ transform:translateY(1px) }
+    .cta.pulse {
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse{
+      0%{ box-shadow:0 6px 22px rgba(255,122,0,0.18) }
+      50%{ box-shadow:0 18px 46px rgba(255,122,0,0.12) ; transform:translateY(-2px) }
+      100%{ box-shadow:0 6px 22px rgba(255,122,0,0.18) }
+    }
+
+    .note{
+      margin-top:16px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .faq{
+      text-align:left;
+      margin-top:24px;
+      border-top:1px dashed #e6e6e6;
+      padding-top:18px;
+    }
+    .faq h3{
+      margin:0 0 6px;
+      font-size:17px;
+    }
+    .faq .q{
+      color:var(--accent-dark);
+      font-weight:700;
+      margin-top:12px;
+    }
+    .faq .a{ color:#333; margin-top:6px; font-size:14px; line-height:1.5 }
+
+    .small{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+
+    footer{ text-align:center; margin-top:20px; font-size:12px; color:var(--muted) }
+
+    /* responsive */
+    @media (max-width:520px){
+      .wrap{ padding:12px }
+      h1{ font-size:22px }
+      .price{ font-size:26px }
+      .cta{ width:100% }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="top-banner">¡NO ABANDONES ESTA PÁGINA, PUEDE CAUSAR UN ERROR EN TU COMPRA! SU ACCESO SERÁ LIBERADO DESPUÉS DE LOS PASOS.</div>
+
+  <main class="wrap">
+    <section class="card" aria-labelledby="title">
+      <!-- opcional: trocar o src da imagem pelo logo que você usa -->
+      <img class="logo" src="https://i.postimg.cc/s2hWrVKw/What-Spy-Logo-PNG-WEBP.webp" alt="SPYY APP - Logo">
+
+      <h1 id="title">¡FELICIDADES!!</h1>
+      <h2>Casi accediendo a la aplicación</h2>
+
+      <div class="progress-wrap" aria-hidden="false">
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
+          <div class="progress-bar" id="progressBar" style="width:0%"></div>
+        </div>
+        <div class="progress-label">
+          <span>Progreso</span>
+          <strong>60%</strong>
+        </div>
+      </div>
+
+      <p style="margin-top:14px;font-weight:700;">¡ACCEDE AL HISTORIAL COMPLETO DE LLAMADAS + VISUALIZACIÓN SECRETA DE STATUS!</p>
+
+      <div class="features">
+        <p style="font-weight:700;">¿Quieres saber TODA la verdad sobre tu pareja? Con nuestra función premium 2 en 1 puedes:</p>
+
+        <ul>
+          <li>📞 <strong>HISTORIAL COMPLETO DE LLAMADAS:</strong> Todas las llamadas entrantes y salientes, duración exacta. Historial de hasta 12 meses.</li>
+          <li>👁️ <strong>VISUALIZACIÓN SECRETA DE STATUS:</strong> Ver todos los status SIN aparecer en 'visto', descargar fotos y videos secretamente y ver status de 'mejores amigos'.</li>
+        </ul>
+
+        <p class="small" style="margin-top:10px;">¡Descubre la verdad completa! El 89% de nuestros usuarios encontraron información crucial combinando llamadas y status.</p>
+
+        <div style="margin-top:18px;">
+          <div class="price" aria-hidden="true">$ 23,97</div>
+          <!-- HOTMART - Sales Funnel Widget -->
+<!--- sales funnel container --->
+<div id="hotmart-sales-funnel"></div>
+
+<!--- script load and setup --->
+<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+<script>
+checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+</script>
+<!-- HOTMART - Sales Funnel Widget -->
+
+          <p class="note">Si intentaste comprar y por algún motivo falló, por favor inténtalo de nuevo al menos 3 veces más para que nuestro sistema cambie automáticamente de proveedor y funcione correctamente. ¡Gracias!</p>
+        </div>
+      </div>
+
+      <div class="faq" aria-label="Preguntas frecuentes">
+        <h3>PREGUNTAS FRECUENTES</h3>
+
+        <div class="q">↩ ¿Por qué el 91% elige esta combinación?</div>
+        <div class="a">Las llamadas revelan <strong>CON QUIÉN</strong> habla, y los status revelan <strong>QUÉ ESTÁ HACIENDO</strong>. Tu pareja puede borrar chats, pero raramente piensa en el historial de llamadas y nunca sospecha que ves sus status secretamente. ¡Es la combinación perfecta para descubrir toda la verdad!</div>
+
+        <div class="q">↩ ¿Puedo ver status que ya eliminó?</div>
+        <div class="a">¡SÍ! Nuestro sistema guarda automáticamente todos los status durante <strong>30 días</strong>, incluso los que tu pareja elimina en segundos. ¡Nada se escapa!</div>
+      </div>
+
+      <footer>
+        <small>¿Dudas? Contacta con soporte desde tu panel después de la compra.</small>
+      </footer>
+    </section>
+  </main>
+
+  <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+  <script>
+    // anima a barra até 60% (substitua se quiser outro valor)
+    (function(){
+      const bar = document.getElementById('progressBar');
+      setTimeout(()=>{ bar.style.width = '60%'; }, 150);
+
+      // acessibilidade: atualiza aria-valuenow
+      const track = document.querySelector('.progress-track');
+      if (track) track.setAttribute('aria-valuenow','60');
+
+      // se quiser trocar link do botão dinamicamente, edite abaixo:
+      // document.getElementById('ctaButton').href = 'https://go.perfectpay.com.br/SEU_LINK';
+    })();
+  </script>
+</body>
+</html>
